@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { RainbowButton } from '@/components/ui/rainbow-button';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import DashboardMockup from '@/components/DashboardMockup';
-import { LoadingSpinner } from '@/components/ui/loading-spinner';
+
 import { ArrowRight, Target, Phone, Database, BarChart3, Globe2, ShieldCheck, FlaskConical, Users2, Briefcase } from 'lucide-react';
 import { Page } from '@/types';
 
