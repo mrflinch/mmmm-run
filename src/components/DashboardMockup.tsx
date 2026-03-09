@@ -131,7 +131,3 @@ export default function DashboardMockup() {
   );
 }
 
-// keep LineChart in scope to avoid unused import warning
-const _unused = LineChart;
-void _unused;
-void Line;
