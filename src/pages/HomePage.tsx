@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { RainbowButton } from '@/components/ui/rainbow-button';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
