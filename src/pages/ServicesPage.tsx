@@ -11,7 +11,7 @@ const BOOKING_URL = "https://cal.com/monder/quick-chat";
 export const ServicesPage = () => (
   <div className="pb-32 relative overflow-hidden">
     {/* Hero section with radial glow */}
-    <RadialGlowBackground className="pt-32 pb-20">
+    <RadialGlowBackground className="pt-32 pb-20 mb-12">
       <div className="max-w-7xl mx-auto px-6 relative">
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
         <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">Our Systems.</h1>
@@ -19,6 +19,7 @@ export const ServicesPage = () => (
       </div>
     </RadialGlowBackground>
 
+    <div className="max-w-7xl mx-auto px-6 relative z-10">
       <div className="space-y-32">
         {[
           {
