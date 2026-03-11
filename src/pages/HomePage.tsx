@@ -16,13 +16,13 @@ export const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => (
       {/* Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-black">
         <iframe
-          className="absolute top-[500px] left-1/2 w-[200vw] h-[112.5vw] min-h-[200vh] min-w-[355.5vh] -translate-x-1/2 -translate-y-1/2 opacity-40 pointer-events-none"
+          className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.78vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
           src="https://www.youtube.com/embed/aiQdLP2mBJE?autoplay=1&mute=1&controls=0&loop=1&playlist=aiQdLP2mBJE&showinfo=0&rel=0&modestbranding=1&playsinline=1"
           allow="autoplay; encrypted-media"
           frameBorder="0"
           title="hero background"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/50 to-[#050505]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#050505]" />
       </div>
 
       {/* Hero Content */}
