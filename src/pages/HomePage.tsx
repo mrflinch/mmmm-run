@@ -16,7 +16,7 @@ export const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => (
       {/* Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-black">
         <video
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover scale-110 animate-slow-zoom pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover scale-75 pointer-events-none"
           src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_25fps.mp4"
           autoPlay
           muted
