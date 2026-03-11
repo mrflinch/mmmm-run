@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { SplineScene } from '@/components/ui/splite';
 import { Spotlight } from '@/components/ui/spotlight';
 import { RainbowButton } from '@/components/ui/rainbow-button';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
