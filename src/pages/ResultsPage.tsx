@@ -174,6 +174,10 @@ export const ResultsPage = () => (
           </motion.div>
         ))}
       </div>
+      {/* Testimonial Videos */}
+      <div className="mb-32">
+        <TestimonialCarousel />
+      </div>
 
       <div className="text-center">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
