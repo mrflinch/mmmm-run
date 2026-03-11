@@ -15,12 +15,13 @@ export const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-black">
-        <iframe
-          className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.78vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-          src="https://www.youtube.com/embed/aiQdLP2mBJE?autoplay=1&mute=1&controls=0&loop=1&playlist=aiQdLP2mBJE&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-          allow="autoplay; encrypted-media"
-          frameBorder="0"
-          title="hero background"
+        <video
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover scale-110 animate-slow-zoom pointer-events-none"
+          src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_25fps.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#050505]" />
       </div>
