@@ -10,14 +10,6 @@ const BOOKING_URL = "https://cal.com/monder/quick-chat";
 
 export const ServicesPage = () => (
   <div className="pt-32 pb-32 relative overflow-hidden">
-    {/* Background Spline Scene */}
-    <div className="absolute top-0 left-0 w-full h-screen z-0 opacity-30 pointer-events-none">
-      <SplineScene
-        scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-        className="w-full h-full"
-      />
-    </div>
-
     <div className="max-w-7xl mx-auto px-6 relative z-10">
       <div className="mb-20 relative">
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
