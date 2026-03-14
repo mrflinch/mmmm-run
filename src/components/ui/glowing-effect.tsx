@@ -27,7 +27,7 @@ const GlowingEffect = memo(
     glow = false,
     className,
     movementDuration = 2,
-    borderWidth = 1,
+    borderWidth = 2,
     disabled = true,
   }: GlowingEffectProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -118,61 +118,56 @@ const GlowingEffect = memo(
       };
     }, [handleMove, disabled]);
 
+    if (disabled) return null;
+
+    const gradient =
+      variant === "white"
+        ? `conic-gradient(from calc(var(--start, 0) * 1deg), #ffffff00 0deg, #ffffff 60deg, #ffffff00 120deg)`
+        : `conic-gradient(from calc(var(--start, 0) * 1deg), transparent 0deg, hsl(225 72% 57%) 60deg, transparent 120deg)`;
+
     return (
       <div
         ref={containerRef}
         style={
           {
-            "--blur": `${blur}px`,
-            "--spread": spread,
             "--start": "0",
             "--active": "0",
-            "--glowingeffect-border-width": `${borderWidth}px`,
-            "--repeating-conic-gradient-times": "5",
-            "--gradient":
-              variant === "white"
-                ? `repeating-conic-gradient(
-                    from 236.84deg at 50% 50%,
-                    #ffffff,
-                    #ffffff calc(25% / var(--repeating-conic-gradient-times))
-                  )`
-                : `radial-gradient(circle, #4169E1, #6080FF, #4169E1, #2040B0) 0 0 / 300% 300%,
-                  radial-gradient(circle at 40% 40%, #6080FF, #4040bf, transparent 50%),
-                  radial-gradient(circle at 60% 60%, #60a0ff, #4080d0, transparent 50%),
-                  repeating-conic-gradient(
-                    from 236.84deg at 50% 50%,
-                    #4169E1 0%,
-                    #6080FF calc(25% / var(--repeating-conic-gradient-times)),
-                    #2040B0 calc(50% / var(--repeating-conic-gradient-times)),
-                    #4169E1 calc(75% / var(--repeating-conic-gradient-times)),
-                    #6080FF calc(100% / var(--repeating-conic-gradient-times))
-                  )`,
           } as React.CSSProperties
         }
         className={cn(
-          "pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-300",
-          glow && "opacity-[calc(var(--active)*0.7)]",
+          "pointer-events-none absolute inset-0 rounded-[inherit]",
           disabled && "!hidden"
         )}
       >
+        {/* Rotating border glow */}
         <div
           className={cn(
-            "absolute inset-[calc(-1*var(--glowingeffect-border-width,1px))] rounded-[inherit]",
-            blur > 0 && "blur-[var(--blur)]",
-            className,
-            disabled && "!hidden"
+            "absolute inset-0 rounded-[inherit] transition-opacity duration-500",
+            className
           )}
           style={{
-            background: `var(--gradient)`,
             opacity: "var(--active, 0)",
-            transition: "opacity 0.4s ease",
-            WebkitMask: `linear-gradient(#fff 0 0) content-box,
-              linear-gradient(#fff 0 0)`,
+            background: gradient,
+            WebkitMask: `linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)`,
             WebkitMaskComposite: "xor",
             maskComposite: "exclude",
-            padding: `var(--glowingeffect-border-width, ${borderWidth}px)`,
+            padding: `${borderWidth}px`,
+            filter: blur > 0 ? `blur(${blur}px)` : undefined,
           }}
         />
+
+        {/* Ambient glow behind card */}
+        {glow && (
+          <div
+            className="absolute inset-0 rounded-[inherit] -z-10 transition-opacity duration-500"
+            style={{
+              opacity: `calc(var(--active, 0) * 0.3)`,
+              background: `conic-gradient(from calc(var(--start, 0) * 1deg), transparent 0deg, hsl(225 72% 57% / 0.4) 60deg, transparent 120deg)`,
+              filter: `blur(${spread}px)`,
+              transform: "scale(1.1)",
+            }}
+          />
+        )}
       </div>
     );
   }
